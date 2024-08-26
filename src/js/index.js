@@ -4,12 +4,12 @@ import {screenController} from './display-controller';
 
 
 
-(async () => {
+/*(async () => {
     let tappan = await consolidateLocationData("blauvelt");
     console.log(tappan.data);
     
-})();
+})();\*/
 
 
 
-//screenController();
+screenController();
