@@ -14,8 +14,8 @@ function screenController(){
         let locationData = await consolidateLocationData(location);
         address.textContent = locationData.address;
         currentTemp.textContent = locationData.temp;
-        minTemp.textContent = locationData.sevenDayForecast[0].lowTemp;
-        maxTemp.textContent = locationData.sevenDayForecast[0].maxTemp;
+        maxTemp.textContent = `H: ${locationData.sevenDayForecast[0].maxTemp}`;
+        minTemp.textContent = `L: ${locationData.sevenDayForecast[0].lowTemp}`;
 
     })
 

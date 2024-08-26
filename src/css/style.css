@@ -17,12 +17,35 @@ body{
     grid-template-rows: 1fr 4fr;
 }
 .weather-content{
-    
     display: flex;
     justify-content: center;
+    
+    
 }
-.current-weather{
+.weather-display{
     width: 400px;
     height: 500px;
     border: 1px solid black;
+    padding: 8px;
+}
+.address{
+    height: 20px;
+    text-align: center;
+}
+.current-temp{
+    font-size: 40px;
+    margin-top: 8px;
+}
+.min-max{
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+.current-temp-wrap{
+    width: auto;
+    text-align: center;
+}
+.current-weather{
+    display: flex;
+    justify-content: center;
 }
