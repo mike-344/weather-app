@@ -7,6 +7,11 @@ function screenController(){
     const currentTemp = document.querySelector(".current-temp");
     const minTemp = document.querySelector(".min-temp");
     const maxTemp = document.querySelector(".max-temp");
+    const condition = document.querySelector(".condition");
+    const humidity = document.querySelector(".humidity");
+    const precipProb = document.querySelector(".precip-prob");
+    const windSpeed = document.querySelector(".wind-speed");
+    const uvIndex = document.querySelector(".uv-index");
 
     async function initializePage(){
         const defaultLocation = "New York";
@@ -19,6 +24,7 @@ function screenController(){
         currentTemp.textContent = `${weatherData.getTemp()}`;
         maxTemp.textContent = `H: ${fiveDay[0].maxTemp}º`;
         minTemp.textContent = `L: ${fiveDay[0].lowTemp}º`;
+        condition.textContent = `${weatherData.getConditions()}`
     }
    
 

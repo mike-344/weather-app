@@ -30,6 +30,8 @@ body{
     height: 500px;
     border: 1px solid black;
     padding: 8px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
 .current-temp{
@@ -49,8 +51,11 @@ body{
     display: flex;
     justify-content: center;
     
+    
 }
 .deg-wrap{
     display: flex;
     align-items:start;
 }
+
+

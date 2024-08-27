@@ -21,6 +21,20 @@ async function fetchWeatherData(location){
         return weatherData.description;
     }
 
+    const getHumidity = () => {
+        return weatherData.currentConditions.humidity;
+    }
+    const getWindSpeed = () => {
+        return weatherData.currentConditions.windspeed;
+    }
+    const getUvIndex = () => {
+        return weatherData.currentConditions.uvindex;
+    }
+    const getPrecipProp = () => {
+        return weatherData.currentConditions.precipprob;
+    }
+    
+
     let fiveDayForecast = weatherData.days.slice(0, 6).map(day => ({
         maxTemp: day.tempmax,
         lowTemp: day.tempmin
@@ -31,7 +45,7 @@ async function fetchWeatherData(location){
     }
     
     
-    return{ weatherData,getTemp, getAddress, getConditions, getFiveDayForecast, getDescription}
+    return{ weatherData,getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProp}
     }
 
     export{fetchWeatherData, consolidateWeatherData}
