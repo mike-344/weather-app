@@ -49,13 +49,14 @@ body{
 }
 .current-weather{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    
+    align-items: center;
     
 }
 .deg-wrap{
     display: flex;
-    align-items:start;
+    justify-content:center;
 }
 
 
