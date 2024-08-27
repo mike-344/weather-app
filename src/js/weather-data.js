@@ -6,20 +6,34 @@ async function fetchWeatherData(location){
     }
     
     
-    async function consolidateLocationData(location){
-    let data = await fetchWeatherData(location);
-    let temp = data.currentConditions.temp;
-    let address = data.resolvedAddress;
-    let conditions = data.currentConditions.conditions;
-    let sevenDayForecast = data.days.slice(0, 8).map(day => ({
+    async function consolidateWeatherData(location){
+    let weatherData = await fetchWeatherData(location);
+    const getTemp = () => {
+        return weatherData.currentConditions.temp;
+    }
+    const getAddress = ()=> {
+        return weatherData.resolvedAddress;
+    }
+    const getConditions = () => {
+        return weatherData.currentConditions.conditions;
+    }
+    const getDescription = () => {
+        return weatherData.description;
+    }
+
+    let fiveDayForecast = weatherData.days.slice(0, 6).map(day => ({
         maxTemp: day.tempmax,
         lowTemp: day.tempmin
     }));
-    let description = data.description;
+
+    const getFiveDayForecast = () => {
+        return fiveDayForecast;
+    }
     
-    return{data, temp, address, conditions, sevenDayForecast, description}
+    
+    return{ weatherData,getTemp, getAddress, getConditions, getFiveDayForecast, getDescription}
     }
 
-    export{fetchWeatherData, consolidateLocationData}
+    export{fetchWeatherData, consolidateWeatherData}
     
     

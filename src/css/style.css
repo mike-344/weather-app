@@ -11,6 +11,7 @@ body, html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 body{
     display: grid;
@@ -18,7 +19,9 @@ body{
 }
 .weather-content{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     
     
 }
@@ -28,13 +31,10 @@ body{
     border: 1px solid black;
     padding: 8px;
 }
-.address{
-    height: 20px;
-    text-align: center;
-}
+
 .current-temp{
     font-size: 40px;
-    margin-top: 8px;
+    display: inline;
 }
 .min-max{
     display: flex;
@@ -48,4 +48,9 @@ body{
 .current-weather{
     display: flex;
     justify-content: center;
+    
+}
+.deg-wrap{
+    display: flex;
+    align-items:start;
 }
