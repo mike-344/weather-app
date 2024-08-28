@@ -59,4 +59,8 @@ body{
     justify-content:center;
 }
 
+.inactive{
+    color: rgb(185, 185, 185)
+}
+
 

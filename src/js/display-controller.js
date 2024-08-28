@@ -12,32 +12,48 @@ function screenController(){
     const precipProb = document.querySelector(".precip-prob");
     const windSpeed = document.querySelector(".wind-speed");
     const uvIndex = document.querySelector(".uv-index");
+    const fahrLogo = document.querySelector(".us");
+    const celsLogo = document.querySelector(".uk");
+    const getSearchButton = () => {
+        return searchButton;
+    }
+    const getLocationInput = () =>{
+        return locationInput;
+    }
+    const getFahrLogo = () => {
+        return fahrLogo;
+    }
+    const getCelsLogo = () => {
+        return celsLogo;
+    }
 
-    async function initializePage(){
+    /*async function initializePage(){
         const defaultLocation = "New York";
         let locationData = await consolidateWeatherData(defaultLocation);
-        updateScreen(locationData);
-    }
-    const updateScreen = (weatherData) =>{
-        let fiveDay = weatherData.getFiveDayForecast();
+        updateScreen(locationData, "us");
+    }*/
+    const updateScreen = (weatherData, unit) =>{
+        let sixDay = weatherData.getSixDayForecast(unit);
         address.textContent = weatherData.getAddress();
-        currentTemp.textContent = `${weatherData.getTemp()}`;
-        maxTemp.textContent = `H: ${fiveDay[0].maxTemp}º`;
-        minTemp.textContent = `L: ${fiveDay[0].lowTemp}º`;
+        currentTemp.textContent = `${weatherData.getTemp(unit)}`;
+        maxTemp.textContent = `H: ${sixDay[0].maxTemp}º`;
+        minTemp.textContent = `L: ${sixDay[0].lowTemp}º`;
         condition.textContent = `${weatherData.getConditions()}`
     }
    
 
-    searchButton.addEventListener("click", async (e) => {
+   /* searchButton.addEventListener("click", async (e) => {
         e.preventDefault();
         let location = locationInput.value || "New York";
         let locationData = await consolidateWeatherData(location);
         updateScreen(locationData);
 
-    })
+    })*/
   
 
-    initializePage();
+   // initializePage();
+
+    return{getSearchButton, getLocationInput, getFahrLogo, getCelsLogo, updateScreen}
     
 
     
