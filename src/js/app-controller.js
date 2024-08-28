@@ -5,8 +5,9 @@ async function appController (){
     screenController();
     let searchButton = screenController().getSearchButton();
     let locationInput = screenController().getLocationInput();
+    let toggles = screenController().getToggles();
     let defaultLocation = "New York";
-    let activeUnit = "us"
+    let activeUnit = "us";
     let activeLocation = await consolidateWeatherData(defaultLocation);
     const switchActiveUnit = () => {
     activeUnit = activeUnit === 'us' ? 'uk' : 'us';
@@ -20,6 +21,14 @@ async function appController (){
         screenController().updateScreen(locationData, activeUnit);
 
     })
+
+    toggles.forEach(toggle => {
+        toggle.addEventListener("click", (e) => {
+            
+
+        })
+    });
+
 
 
 

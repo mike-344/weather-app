@@ -1,5 +1,3 @@
-import { fetchWeatherData, consolidateWeatherData } from "./weather-data";
-
 function screenController(){
     const locationInput = document.querySelector("#location-input");
     const address = document.querySelector(".address");
@@ -12,26 +10,18 @@ function screenController(){
     const precipProb = document.querySelector(".precip-prob");
     const windSpeed = document.querySelector(".wind-speed");
     const uvIndex = document.querySelector(".uv-index");
-    const fahrLogo = document.querySelector(".us");
-    const celsLogo = document.querySelector(".uk");
+    const toggles = document.querySelectorAll(".toggle");
     const getSearchButton = () => {
         return searchButton;
     }
     const getLocationInput = () =>{
         return locationInput;
     }
-    const getFahrLogo = () => {
-        return fahrLogo;
+    const getToggles = () => {
+        return toggles;
     }
-    const getCelsLogo = () => {
-        return celsLogo;
-    }
+    
 
-    /*async function initializePage(){
-        const defaultLocation = "New York";
-        let locationData = await consolidateWeatherData(defaultLocation);
-        updateScreen(locationData, "us");
-    }*/
     const updateScreen = (weatherData, unit) =>{
         let sixDay = weatherData.getSixDayForecast(unit);
         address.textContent = weatherData.getAddress();
@@ -41,23 +31,9 @@ function screenController(){
         condition.textContent = `${weatherData.getConditions()}`
     }
    
-
-   /* searchButton.addEventListener("click", async (e) => {
-        e.preventDefault();
-        let location = locationInput.value || "New York";
-        let locationData = await consolidateWeatherData(location);
-        updateScreen(locationData);
-
-    })*/
-  
-
-   // initializePage();
-
-    return{getSearchButton, getLocationInput, getFahrLogo, getCelsLogo, updateScreen}
+    return{getSearchButton, getLocationInput, getToggles, updateScreen}
     
-
     
 }
-
 
 export{screenController}
