@@ -19,12 +19,16 @@ async function appController (){
         let location = locationInput.value || "New York";
         let locationData = await consolidateWeatherData(location);
         screenController().updateScreen(locationData, activeUnit);
+        activeLocation = locationData;
 
     })
 
     toggles.forEach(toggle => {
         toggle.addEventListener("click", (e) => {
-            
+            if(e.target.getAttribute("id") !== activeUnit){
+                switchActiveUnit();
+                screenController().updateScreen(activeLocation, activeUnit)
+            }
 
         })
     });
