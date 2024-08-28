@@ -62,6 +62,9 @@ body{
 .inactive{
     color: rgb(185, 185, 185)
 }
+.active{
+    color: black;
+}
 .toggle:hover{
     cursor:pointer;
 }

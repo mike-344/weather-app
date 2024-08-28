@@ -27,10 +27,21 @@ async function appController (){
         toggle.addEventListener("click", (e) => {
             if(e.target.getAttribute("id") !== activeUnit){
                 switchActiveUnit();
-                screenController().updateScreen(activeLocation, activeUnit)
+                screenController().updateScreen(activeLocation, activeUnit);
+                toggles.forEach(toggle => {
+                    if(toggle.getAttribute("id") === activeUnit){
+                        toggle.classList.remove("inactive")
+                        toggle.classList.add("active")
+                    } else {
+                        toggle.classList.remove("active")
+                        toggle.classList.add("inactive")
+                    }
+                })
             }
 
+
         })
+
     });
 
 
