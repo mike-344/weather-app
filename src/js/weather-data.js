@@ -38,7 +38,7 @@ async function fetchWeatherDataFahrenheit(location){
     const getUvIndex = () => {
         return weatherDataFahrenheit.currentConditions.uvindex;
     }
-    const getPrecipProp = () => {
+    const getPrecipProb = () => {
         return weatherDataFahrenheit.currentConditions.precipprob;
     }
 
@@ -61,7 +61,7 @@ async function fetchWeatherDataFahrenheit(location){
       
     }
         
-    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProp, getCurrentMax, getCurrentMin}
+    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProb, getCurrentMax, getCurrentMin}
     }
 
     export{fetchWeatherDataFahrenheit, fetchWeatherDataCelsius, consolidateWeatherData}

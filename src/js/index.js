@@ -7,7 +7,7 @@ import {appController} from './app-controller'
 (async () => {
     let manhattan = await consolidateWeatherData("manhattan");
     console.log(manhattan.weatherDataFahrenheit)
-    console.log(manhattan.getFiveDayForecast());
+    console.log(manhattan.getPrecipProb());
     
     
 })();

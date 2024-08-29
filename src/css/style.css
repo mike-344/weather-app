@@ -69,4 +69,14 @@ body{
     cursor:pointer;
 }
 
+.condition-detail{
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   text-align: center;
+   font-size: 15px;
+   align-items: center;
+}
+.condition-detail .condition{
+    font-size: 26px;
+}
 

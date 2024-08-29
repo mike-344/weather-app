@@ -27,6 +27,10 @@ function screenController(){
         maxTemp.textContent = `H: ${weatherData.getCurrentMax(unit)}º`;
         minTemp.textContent = `L: ${weatherData.getCurrentMin(unit)}º`;
         condition.textContent = `${weatherData.getConditions()}`;
+        humidity.textContent = `${weatherData.getHumidity()}%`;
+        precipProb.textContent = `${weatherData.getPrecipProb()}%`
+        windSpeed.textContent = `${weatherData.getWindSpeed()} mph`
+        uvIndex.textContent = `${weatherData.getUvIndex()}`
     }
    
     return{getSearchButton, getLocationInput, getToggles, updateScreen}
