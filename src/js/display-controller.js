@@ -20,15 +20,13 @@ function screenController(){
     const getToggles = () => {
         return toggles;
     }
-    
-
     const updateScreen = (weatherData, unit) =>{
-        let sixDay = weatherData.getSixDayForecast(unit);
+        let fiveDay = weatherData.getFiveDayForecast(unit);
         address.textContent = weatherData.getAddress();
         currentTemp.textContent = `${weatherData.getTemp(unit)}`;
-        maxTemp.textContent = `H: ${sixDay[0].maxTemp}º`;
-        minTemp.textContent = `L: ${sixDay[0].lowTemp}º`;
-        condition.textContent = `${weatherData.getConditions()}`
+        maxTemp.textContent = `H: ${weatherData.getCurrentMax(unit)}º`;
+        minTemp.textContent = `L: ${weatherData.getCurrentMin(unit)}º`;
+        condition.textContent = `${weatherData.getConditions()}`;
     }
    
     return{getSearchButton, getLocationInput, getToggles, updateScreen}

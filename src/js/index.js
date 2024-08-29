@@ -7,7 +7,7 @@ import {appController} from './app-controller'
 (async () => {
     let tappan = await consolidateWeatherData("manhattan");
     console.log(tappan.weatherDataCelsius);
-    console.log(tappan.getTemp("uk"))
+    console.log(tappan.getTemp("us"))
     
 })();
 

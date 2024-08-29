@@ -41,17 +41,25 @@ async function fetchWeatherDataFahrenheit(location){
     const getPrecipProp = () => {
         return weatherDataFahrenheit.currentConditions.precipprob;
     }
+
+    const getCurrentMax = (unit)=> {
+        return unit === 'us' ? weatherDataFahrenheit.days[0].tempmax : weatherDataCelsius.days[0].tempmax;
+    }
     
-    const getSixDayForecast = (unit) => {
+    const getCurrentMin = (unit)=> {
+        return unit === 'us' ? weatherDataFahrenheit.days[0].tempmin : weatherDataCelsius.days[0].tempmin;
+    }
+    
+    const getFiveDayForecast = (unit) => {
         let forecast = unit === 'us' ? weatherDataFahrenheit.days : weatherDataCelsius.days;
-        return forecast.slice(0, 6).map(day => ({
+        return forecast.slice(1, 6).map(day => ({
             maxTemp: day.tempmax,
             lowTemp: day.tempmin
         }));
       
     }
         
-    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getSixDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProp}
+    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProp, getCurrentMax, getCurrentMin}
     }
 
     export{fetchWeatherDataFahrenheit, fetchWeatherDataCelsius, consolidateWeatherData}
