@@ -54,7 +54,9 @@ async function fetchWeatherDataFahrenheit(location){
         let forecast = unit === 'us' ? weatherDataFahrenheit.days : weatherDataCelsius.days;
         return forecast.slice(1, 6).map(day => ({
             maxTemp: day.tempmax,
-            lowTemp: day.tempmin
+            lowTemp: day.tempmin,
+            dayOfWeek: new Date(day.datetime).getDay(),
+            
         }));
       
     }

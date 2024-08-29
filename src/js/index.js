@@ -5,9 +5,10 @@ import {appController} from './app-controller'
 
 
 (async () => {
-    let tappan = await consolidateWeatherData("manhattan");
-    console.log(tappan.weatherDataCelsius);
-    console.log(tappan.getTemp("us"))
+    let manhattan = await consolidateWeatherData("manhattan");
+    console.log(manhattan.weatherDataFahrenheit)
+    console.log(manhattan.getFiveDayForecast());
+    
     
 })();
 
