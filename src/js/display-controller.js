@@ -37,7 +37,8 @@ function screenController(){
     const toggles = document.querySelectorAll(".toggle");
     const forecast = document.querySelectorAll(".forecast-item");
     const highLowForecast = document.querySelectorAll(".high-low-forecast");
-    const icons = document.querySelectorAll("img");
+    const icons = document.querySelectorAll(".forecast img");
+    const currentIcon = document.querySelector(".current-icon");
    
     const getUrl = (icon) => {
         if (icon === "clear-day"){
@@ -118,6 +119,7 @@ function screenController(){
             let logoSrc = getUrl(fiveDay[index].iconLogo);
             icon.setAttribute("src", logoSrc);
         })
+        currentIcon.setAttribute("src", getUrl(weatherData.getCurrentIcon()))
         
 
     }

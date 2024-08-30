@@ -67,6 +67,9 @@ async function fetchWeatherDataFahrenheit(location){
     const getCurrentMin = (unit)=> {
         return unit === 'us' ? weatherDataFahrenheit.days[0].tempmin : weatherDataCelsius.days[0].tempmin;
     }
+    const getCurrentIcon = () => {
+        return weatherDataFahrenheit.currentConditions.icon;
+    }
     
     const getFiveDayForecast = (unit) => {
         let forecast = unit === 'us' ? weatherDataFahrenheit.days : weatherDataCelsius.days;
@@ -83,7 +86,7 @@ async function fetchWeatherDataFahrenheit(location){
       
     }
         
-    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProb, getCurrentMax, getCurrentMin}
+    return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProb, getCurrentMax, getCurrentMin, getCurrentIcon}
 }
 
     export{fetchWeatherDataFahrenheit, fetchWeatherDataCelsius, consolidateWeatherData, getDayString}
