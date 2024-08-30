@@ -1,12 +1,12 @@
 async function fetchWeatherDataFahrenheit(location){
-    let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`)
+    let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&iconSet=icons2&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`)
     let data = await response.json();
     return data;
     
     }
 
     async function fetchWeatherDataCelsius(location){
-        let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=uk&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`)
+        let response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=uk&iconSet=icons2&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`)
         let data = await response.json();
         return data;
         
