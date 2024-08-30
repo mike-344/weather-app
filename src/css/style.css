@@ -79,4 +79,8 @@ body{
 .condition-detail .condition{
     font-size: 26px;
 }
-
+.forecast{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}

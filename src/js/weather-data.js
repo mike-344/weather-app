@@ -11,6 +11,24 @@ async function fetchWeatherDataFahrenheit(location){
         return data;
         
         }
+        const getDayString = (index) =>{
+            switch(index){
+                case '0':
+                    return "Mon";
+                case '1':
+                    return "Tue";
+                case '2':
+                    return "Wed";
+                case '3':
+                    return "Thu";
+                case '4':
+                    return "Fri";   
+                case '5':
+                    return "Sat";
+                case '6':
+                    return "Sun";
+            }
+        }
         
     async function consolidateWeatherData(location){
     let [weatherDataFahrenheit, weatherDataCelsius] = await Promise.all([fetchWeatherDataFahrenheit(location), fetchWeatherDataCelsius(location)]);
@@ -52,18 +70,21 @@ async function fetchWeatherDataFahrenheit(location){
     
     const getFiveDayForecast = (unit) => {
         let forecast = unit === 'us' ? weatherDataFahrenheit.days : weatherDataCelsius.days;
-        return forecast.slice(1, 6).map(day => ({
-            maxTemp: day.tempmax,
-            lowTemp: day.tempmin,
-            dayOfWeek: new Date(day.datetime).getDay(),
-            
-        }));
+        return forecast.slice(1, 6).map(day => {
+            const dayOfWeekIndex = new Date(day.datetime).getDay();
+            return {
+                maxTemp: day.tempmax,
+                lowTemp: day.tempmin,
+                dayOfWeekIndex: dayOfWeekIndex,
+                dayOfWeek: getDayString(dayOfWeekIndex.toString())
+            };
+        });
       
     }
         
     return{ weatherDataFahrenheit, weatherDataCelsius, getTemp, getAddress, getConditions, getFiveDayForecast, getDescription, getHumidity, getWindSpeed, getUvIndex, getPrecipProb, getCurrentMax, getCurrentMin}
-    }
+}
 
-    export{fetchWeatherDataFahrenheit, fetchWeatherDataCelsius, consolidateWeatherData}
+    export{fetchWeatherDataFahrenheit, fetchWeatherDataCelsius, consolidateWeatherData, getDayString}
     
     
