@@ -14,6 +14,7 @@ function screenController(){
     const toggles = document.querySelectorAll(".toggle");
     const forecast = document.querySelectorAll(".forecast-item");
     const highLowForecast = document.querySelectorAll(".high-low-forecast");
+    const icons = document.querySelectorAll("img");
     const getSearchButton = () => {
         return searchButton;
     }

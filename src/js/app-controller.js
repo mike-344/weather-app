@@ -38,8 +38,6 @@ async function appController (){
                     }
                 })
             }
-
-
         })
 
     });
