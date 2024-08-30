@@ -76,7 +76,8 @@ async function fetchWeatherDataFahrenheit(location){
                 maxTemp: day.tempmax,
                 lowTemp: day.tempmin,
                 dayOfWeekIndex: dayOfWeekIndex,
-                dayOfWeek: getDayString(dayOfWeekIndex.toString())
+                dayOfWeek: getDayString(dayOfWeekIndex.toString()),
+                iconLogo: day.icon
             };
         });
       

@@ -1,4 +1,27 @@
 import { getDayString } from "./weather-data";
+import clear_day from '../img/clear-day.png'
+import clear_night from '../img/clear-night.png'
+import cloudy from '../img/cloudy.png'
+import fog from '../img/fog.png'
+import hail from '../img/hail.png'
+import partly_cloudy_day from '../img/partly-cloudy-day.png'
+import partly_cloudy_night from '../img/partly-cloudy-night.png'
+import rain_snow_showers_day from '../img/rain-snow-showers-day.png'
+import rain_snow_showers_night from '../img/rain-snow-showers-night.png'
+import rain_snow from '../img/rain-snow.png'
+import rain from '../img/rain.png'
+import showers_day from '../img/showers-day.png'
+import showers_night from '../img/showers-night.png'
+import sleet from '../img/sleet.png'
+import snow_showers_day from '../img/snow-showers-day.png'
+import snow_showers_night from '../img/snow-showers-night.png'
+import snow from '../img/snow.png'
+import thunder_rain from '../img/thunder-rain.png'
+import thunder_showers_day from '../img/thunder-showers-day.png'
+import thunder_showers_night from '../img/thunder-showers-night.png'
+import thunder from '../img/thunder.png'
+import wind from '../img/wind.png'
+
 function screenController(){
     const locationInput = document.querySelector("#location-input");
     const address = document.querySelector(".address");
@@ -15,11 +38,12 @@ function screenController(){
     const forecast = document.querySelectorAll(".forecast-item");
     const highLowForecast = document.querySelectorAll(".high-low-forecast");
     const icons = document.querySelectorAll("img");
+   
     const getUrl = (icon) => {
         if (icon === "clear-day"){
-            return clearDay;
+            return clear_day;
         } else if(icon === "clear-night"){
-            return clearNight;
+            return clear_night;
         } else if(icon === "cloudy"){
             return cloudy;
         } else if(icon === "fog"){
@@ -27,35 +51,35 @@ function screenController(){
         } else if(icon === "hail"){
             return hail;
         } else if(icon === "partly-cloudy-day"){
-            return partlyCloudyDay;
+            return partly_cloudy_day;
          } else if(icon === "partly-cloudy-night"){
-                 return partlyCloudyNight;
+                 return partly_cloudy_night;
          } else if(icon === "rain-snow-showers-day"){
-                 return rainSnowShowersDay;
+                 return rain_snow_showers_day;
          } else if(icon === "rain-snow-showers-night"){
-                 return rainSnowShowersNight;
+                 return rain_snow_showers_night;
          } else if(icon === "rain-snow"){
-                return rainSnow;
+                return rain_snow;
          } else if(icon === "rain"){
                 return rain;
          } else if(icon === "showers-day"){
-                return showersDay;
+                return showers_day;
         }else if(icon === "showers-night"){
-            return showersNight;
+            return showers_night;
         }else if(icon === "sleet"){
             return sleet;
         }else if(icon === "snow-showers-day"){
-            return snowShowersDay;
+            return snow_showers_day;
         }else if(icon === "snow-showers-night"){
-            return snowShowersNight;
+            return snow_showers_night;
         }else if(icon === "snow"){
             return snow;
         }else if(icon === "thunder-rain"){
-            return thunderRain;
+            return thunder_rain;
         }else if(icon === "thunder-showers-day"){
-            return thunderShowersDay;
+            return thunder_showers_day;
         }else if(icon === "thunder-showers-night"){
-            return thunderShowersNight;
+            return thunder_showers_night;
         }else if(icon === "thunder"){
             return thunder;
         }else if(icon === "wind"){
@@ -90,6 +114,11 @@ function screenController(){
         highLowForecast.forEach((day, index) => {
             day.textContent = `${fiveDay[index].maxTemp.toFixed(1)}º/${fiveDay[index].lowTemp.toFixed(1)}º`
         })
+        icons.forEach((icon, index) =>{
+            let logoSrc = getUrl(fiveDay[index].iconLogo);
+            icon.setAttribute("src", logoSrc);
+        })
+        
 
     }
   
