@@ -1,5 +1,5 @@
 import "../css/style.css";
-import { fetchWeatherData, consolidateWeatherData } from "./weather-data";
+import { consolidateWeatherData } from "./weather-data";
 import { appController } from "./app-controller";
 
 (async () => {
