@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 body, html{
     height: 100%
@@ -12,6 +13,7 @@ body, html{
     align-items: center;
     justify-content: center;
     position: relative;
+    
 }
 body{
     display: grid;
@@ -26,22 +28,24 @@ body{
     
 }
 .weather-display{
-    width: 500px;
+    flex-shrink: 1;
+    width: 100%;
     height: 500px;
     border: 1px solid black;
     padding: 8px;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
+    
 }
 
 .current-temp{
-    font-size: 40px;
+    font-size: 2.5rem;
     display: inline;
 }
 .min-max{
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 1rem;
 }
 .current-temp-wrap{
     width: auto;
@@ -73,16 +77,50 @@ body{
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr;
    text-align: center;
-   font-size: 15px;
+   font-size: 1rem;
    align-items: center;
    
 }
 .condition-detail .condition{
-    font-size: 26px;
+    font-size: 1.6rem;
 }
 .forecast{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     text-align: center;
-    gap: 8px;
+    gap: .5rem;
+}
+@media (max-width: 768px) {
+    .weather-display {
+        height: auto;
+        padding: 4px;
+    }
+
+    .current-temp {
+        font-size: 2rem;
+    }
+
+    .condition-detail .condition {
+        font-size: 1.4rem;
+    }
+
+    .forecast {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .current-temp {
+        font-size: 1.5rem;
+    }
+
+    .condition-detail .condition {
+        font-size: 1.2rem;
+    }
+
+    .forecast {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 0.25rem;
+    }
 }
