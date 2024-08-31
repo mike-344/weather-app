@@ -39,52 +39,34 @@ function screenController() {
   const icons = document.querySelectorAll(".forecast img");
   const currentIcon = document.querySelector(".current-icon");
 
+
+  const iconMap = {
+    "clear-day": clear_day,
+    "clear-night": clear_night,
+    "cloudy": cloudy,
+    "fog": fog,
+    "hail": hail,
+    "partly-cloudy-day": partly_cloudy_day,
+    "partly-cloudy-night": partly_cloudy_night,
+    "rain-snow-showers-day": rain_snow_showers_day,
+    "rain-snow-showers-night": rain_snow_showers_night,
+    "rain-snow": rain_snow,
+    "rain": rain,
+    "showers-day": showers_day,
+    "showers-night": showers_night,
+    "sleet": sleet,
+    "snow-showers-day": snow_showers_day,
+    "snow-showers-night": snow_showers_night,
+    "snow": snow,
+    "thunder-rain": thunder_rain,
+    "thunder-showers-day": thunder_showers_day,
+    "thunder-showers-night": thunder_showers_night,
+    "thunder": thunder,
+    "wind": wind,
+  };
+  
   const getUrl = (icon) => {
-    if (icon === "clear-day") {
-      return clear_day;
-    } else if (icon === "clear-night") {
-      return clear_night;
-    } else if (icon === "cloudy") {
-      return cloudy;
-    } else if (icon === "fog") {
-      return fog;
-    } else if (icon === "hail") {
-      return hail;
-    } else if (icon === "partly-cloudy-day") {
-      return partly_cloudy_day;
-    } else if (icon === "partly-cloudy-night") {
-      return partly_cloudy_night;
-    } else if (icon === "rain-snow-showers-day") {
-      return rain_snow_showers_day;
-    } else if (icon === "rain-snow-showers-night") {
-      return rain_snow_showers_night;
-    } else if (icon === "rain-snow") {
-      return rain_snow;
-    } else if (icon === "rain") {
-      return rain;
-    } else if (icon === "showers-day") {
-      return showers_day;
-    } else if (icon === "showers-night") {
-      return showers_night;
-    } else if (icon === "sleet") {
-      return sleet;
-    } else if (icon === "snow-showers-day") {
-      return snow_showers_day;
-    } else if (icon === "snow-showers-night") {
-      return snow_showers_night;
-    } else if (icon === "snow") {
-      return snow;
-    } else if (icon === "thunder-rain") {
-      return thunder_rain;
-    } else if (icon === "thunder-showers-day") {
-      return thunder_showers_day;
-    } else if (icon === "thunder-showers-night") {
-      return thunder_showers_night;
-    } else if (icon === "thunder") {
-      return thunder;
-    } else if (icon === "wind") {
-      return wind;
-    }
+    return iconMap[icon];
   };
 
   const getSearchButton = () => {
