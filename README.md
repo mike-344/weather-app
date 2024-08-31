@@ -1,3 +1,5 @@
 # Weather-app
 
-Weather forecaster utilizing visual crossing API. Vanilla js, css, html
+Weather forecaster in vanilla js, css and html utilizing visual crossing API
+
+Link to project: https://mike-344.github.io/weather-app/
