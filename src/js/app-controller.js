@@ -13,6 +13,7 @@ async function appController() {
     activeUnit = activeUnit === "us" ? "uk" : "us";
   };
   screenController().updateScreen(activeLocation, activeUnit);
+  
 
   searchButton.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -21,6 +22,16 @@ async function appController() {
     screenController().updateScreen(locationData, activeUnit);
     activeLocation = locationData;
   });
+
+  locationInput.addEventListener("keydown", async (e) => {
+    if (e.key==='Enter'){
+      e.preventDefault();
+      let location = e.target.value || "New York";
+      let locationData = await consolidateWeatherData(location);
+      screenController().updateScreen(locationData, activeUnit);
+      activeLocation = locationData;
+    }
+  })
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
