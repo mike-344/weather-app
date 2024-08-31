@@ -1,17 +1,38 @@
 async function fetchWeatherDataFahrenheit(location) {
+    try{
   let response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=us&iconSet=icons2&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`
   );
+  if (!response.ok){
+    throw new Error(`Invalid Address! Status ${response.status}`)
+  }
   let data = await response.json();
+    
   return data;
+} catch(err){
+    console.error("Error fetching weather data", err)
+    alert(err)
+    return {}
 }
+}
+  
 
 async function fetchWeatherDataCelsius(location) {
+   try{ 
   let response = await fetch(
     `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=uk&iconSet=icons2&key=SB4XPNB9C6RX2EVSB6W5GTMBT&contentType=json`
   );
+  if(!response.ok){
+    throw new Error(`HTTP error! Status: ${response.status}`)
+  }
   let data = await response.json();
   return data;
+} catch(err){
+    console.error ("Error fetching weather data", err)
+    
+    return {}
+}
+   
 }
 const getDayString = (index) => {
   switch (index) {
@@ -33,6 +54,7 @@ const getDayString = (index) => {
 };
 
 async function consolidateWeatherData(location) {
+    try{
   let [weatherDataFahrenheit, weatherDataCelsius] = await Promise.all([
     fetchWeatherDataFahrenheit(location),
     fetchWeatherDataCelsius(location),
@@ -113,6 +135,11 @@ async function consolidateWeatherData(location) {
     getCurrentMin,
     getCurrentIcon,
   };
+} catch(err){
+    console.log(err)
+    
+    return{}
+}
 }
 
 export {
